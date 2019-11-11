@@ -6,7 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./lista-peticiones.component.scss']
 })
 export class ListaPeticionesComponent implements OnInit {
-
+  type: string;
   Peticiones=[
     {
       Laboratorio: 'Software Libre',
@@ -41,7 +41,9 @@ export class ListaPeticionesComponent implements OnInit {
       Estado: 'Pendiente'
     }
   ]
-  constructor() { }
+  constructor() { 
+    this.type = "student";  
+  }
 
   ngOnInit() {
   }

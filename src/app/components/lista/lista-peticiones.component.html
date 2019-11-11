@@ -1,0 +1,32 @@
+
+
+<div class="padre">
+  <div class="lista">
+ <table class="table">
+  <thead class="thead-dark" >
+    <tr>
+      <th scope="col">Laboratorio</th>
+      <th scope="col">Fecha solicitada</th>
+      <th scope="col">Asignatura</th>
+      <th scope="col">Docente</th>
+      <th scope="col">Estado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr  *ngFor="let option of Peticiones">
+      <td>{{option.Laboratorio}}</td>
+      <td>{{option.FechaPedida}}</td>
+      <td>{{option.Asignatura}}</td>
+      <td>{{option.Docente}}</td>
+      <td *ngIf="this.type == 'student' || this.type == 'teacher'; else aux">{{option.Estado}}</td>
+      <ng-template #aux>
+        <button type="button" class="btn btn-success">Aceptar</button>
+        <button type="button" class="btn btn-danger">Rechazar</button>
+      </ng-template>
+    </tr>
+  </tbody>
+</table>
+  </div>
+</div>
+
+

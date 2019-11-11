@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
 import { ListaPeticionesComponent } from './components/listapeticiones/lista-peticiones.component';
 import { ResponderPeticionesComponent } from './components/responderpeticiones/responder-peticiones.component';
+import { ListaComponent } from './components/lista/lista-peticiones.component';
 
 @NgModule({
   declarations: [
@@ -21,8 +22,9 @@ import { ResponderPeticionesComponent } from './components/responderpeticiones/r
     ResponderPeticionesComponent,
     SolisalaComponent,
     ListaPeticionesComponent,
+    ListaComponent
   ],
-  exports: [ResponderPeticionesComponent, ListaPeticionesComponent],
+  exports: [ResponderPeticionesComponent, ListaPeticionesComponent, ListaComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
