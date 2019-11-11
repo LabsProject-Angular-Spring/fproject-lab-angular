@@ -1,40 +1,70 @@
+
 .padre{
     width: 100%;
     margin: auto;
     display: flex;
     height: 100%;
+    font-family: 'Poppins', sans-serif;
 }
 .jumbotron{
     height: 100vh;
     padding: 0;
 }
-.izquierda, .derecha{
+.izquierda{
     display: flex;
-    width: 50%;
+    width: 60%;
     height: 100%;
     justify-content: center;
     align-items: center;
-}
-.izquierda {
-    background-color: rgb(255, 255, 255);
     flex-direction: column;
+    background-image: url("../../../assets/Library2.jpg");
 }
+
 .derecha {
-    background-color: rgb(177, 0, 0);
+  
+    background-color: rgb(255, 255, 255);
     display: flex;
-    background-image: url("../../../assets/fondologi.jpg");
     background-size: cover;
     background-repeat: no-repeat;
+
+    display: flex;
+    width: 40%;
+    height: 100%;
+    padding: 5%;
 }
-.login
+/*.login
 {
     display: flex;
     justify-content: center;
-    height: 40%;
+    height: 50%;
     width: 50%;
     background-color: rgba(182, 168, 196, 0.664);
     border-radius: 5%;
+}*/
+.escudo
+{
+   max-width: 230px;
+   padding-top: 5%;
 }
-.form{
-    align-self: center;
+.unilibre
+{
+    max-width: 500px;
+    margin-bottom: 10%;
+}
+.boton
+{
+    background-color: rgb(226, 0, 26);
+    border-color: rgb(226, 0, 26);
+}
+.h2
+{
+   color: #E2001A;
+}
+.f
+{
+    margin-top: 10%;;
+}
+.g
+{
+    margin-top: 2%;
 }

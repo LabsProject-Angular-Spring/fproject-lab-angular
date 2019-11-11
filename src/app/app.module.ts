@@ -8,19 +8,25 @@ import { HomeComponent } from './components/home/home.component';
 import { SolisalaComponent } from './components/solisala/solisala.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DynamicFormBuilder } from 'ngx-dynamic-form-builder';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSliderModule } from '@angular/material/slider';
+import { ListaPeticionesComponent } from './components/lista-peticiones/lista-peticiones.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     HomeComponent,
-    SolisalaComponent
+    SolisalaComponent,
+    ListaPeticionesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    MatSliderModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
   providers: [    DynamicFormBuilder],
   bootstrap: [AppComponent]
