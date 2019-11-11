@@ -10,8 +10,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DynamicFormBuilder } from 'ngx-dynamic-form-builder';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
-import { ListaPeticionesComponent } from './components/lista-peticiones/lista-peticiones.component';
-import { ResponderPeticionesComponent } from './components/responder-peticiones/responder-peticiones.component';
+import { ListaPeticionesComponent } from './components/listapeticiones/lista-peticiones.component';
+import { ResponderPeticionesComponent } from './components/responderpeticiones/responder-peticiones.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,7 @@ import { ResponderPeticionesComponent } from './components/responder-peticiones/
     SolisalaComponent,
     ListaPeticionesComponent,
   ],
-  exports:[ResponderPeticionesComponent],
+  exports: [ResponderPeticionesComponent, ListaPeticionesComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
