@@ -11,15 +11,18 @@ import { DynamicFormBuilder } from 'ngx-dynamic-form-builder';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
 import { ListaPeticionesComponent } from './components/lista-peticiones/lista-peticiones.component';
+import { ResponderPeticionesComponent } from './components/responder-peticiones/responder-peticiones.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     HomeComponent,
+    ResponderPeticionesComponent,
     SolisalaComponent,
-    ListaPeticionesComponent
+    ListaPeticionesComponent,
   ],
+  exports:[ResponderPeticionesComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
