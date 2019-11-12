@@ -13,6 +13,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { ListaPeticionesComponent } from './components/listapeticiones/lista-peticiones.component';
 import { ResponderPeticionesComponent } from './components/responderpeticiones/responder-peticiones.component';
 import { ListaComponent } from './components/lista/lista-peticiones.component';
+import { AuthGuard } from "./guards/auth-guard.service";
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { ListaComponent } from './components/lista/lista-peticiones.component';
     ReactiveFormsModule,
     BrowserAnimationsModule
   ],
-  providers: [    DynamicFormBuilder],
+  providers: [DynamicFormBuilder, AuthGuard ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

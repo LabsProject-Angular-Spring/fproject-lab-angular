@@ -4,12 +4,15 @@ import {HomeComponent } from './components/home/home.component';
 import {SolisalaComponent} from './components/solisala/solisala.component';
 import { ListaPeticionesComponent } from './components/listapeticiones/lista-peticiones.component';
 import { ResponderPeticionesComponent } from './components/responderpeticiones/responder-peticiones.component';
+import { AuthGuard } from './guards/auth-guard.service';
+
+
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
-  {path: 'solisala', component: SolisalaComponent},
-  {path: 'lista-peticiones', component: ListaPeticionesComponent},
-  {path: 'responder-peticiones', component: ResponderPeticionesComponent},
-  { path: '', redirectTo: 'responder-peticiones', pathMatch: 'full'}
+  {path: 'solisala', component: SolisalaComponent, canActivate: [AuthGuard]},
+  { path: 'lista-peticiones', component: ListaPeticionesComponent, canActivate: [AuthGuard]},
+  { path: 'responder-peticiones', component: ResponderPeticionesComponent, canActivate: [AuthGuard]},
+  { path: '', redirectTo: 'home', pathMatch: 'full'}
 ];
 
 @NgModule({
