@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.form = this.fb.group(Login, {
-      Username: '', Password: ''
+      username: '', password: ''
     });
   }
   async onSaveClick() {
