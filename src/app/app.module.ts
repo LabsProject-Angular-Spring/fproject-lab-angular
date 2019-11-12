@@ -14,6 +14,7 @@ import { ListaPeticionesComponent } from './components/listapeticiones/lista-pet
 import { ResponderPeticionesComponent } from './components/responderpeticiones/responder-peticiones.component';
 import { ListaComponent } from './components/lista/lista-peticiones.component';
 import { AuthGuard } from "./guards/auth-guard.service";
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { AuthGuard } from "./guards/auth-guard.service";
     FormsModule,
     MatSliderModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule,
   ],
   providers: [DynamicFormBuilder, AuthGuard ],
   bootstrap: [AppComponent]
