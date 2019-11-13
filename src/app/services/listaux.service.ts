@@ -11,4 +11,8 @@ export class ListauxService {
     headers = headers.set('Content-Type', 'application/json'); // Hacemos saber que es jSON
     return this.http.get("http://localhost:10030/labrequest/list", {headers: headers}) // pETICIÓN GET
   }
+
+  accept = () => {
+    
+  }
 }

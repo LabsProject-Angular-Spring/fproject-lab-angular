@@ -15,4 +15,8 @@ export class ListaComponent implements OnInit {
   ngOnInit() {
   }
 
+  accept(id) {
+
+  }
+
 }
