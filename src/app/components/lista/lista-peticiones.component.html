@@ -1,8 +1,25 @@
 
 
 <div class="padre">
+  <h1 style="text-align: center; margin-top:1em; ">Calendario académico</h1>
   <div class="lista">
- <table class="table">
+    <div style = "display: flex; margin: 1em; align-content: center; justify-content: center;">
+        <img *ngIf = "this.type != 'student' && this.type != 'teacher'" src = "../../../assets/calendar-clock-icon_34472.png" style="margin: 1em" width="20%" height="20%" />   
+      <div>
+        <h3 style="text-align: center;">Calendario personal</h3>
+        <ejs-calendar style = "margin: 10px" [isMultiSelection]='multiselect' id=value [value]='value' [min]='minDate' [max]='maxDate'>
+          </ejs-calendar>
+      </div>
+      <div>
+        <h3 style="text-align: center;">Calendario del laboratorio</h3>
+        <ejs-calendar style="margin: 10px" *ngIf="this.type == 'student' || this.type == 'teacher'"
+        [isMultiSelection]='multiselect' id=value
+        [value]='value' [min]='minDate' [max]='maxDate'>
+        </ejs-calendar>
+
+      </div>
+    </div>
+ <table style = "margin-top: 5em;" class="table">
   <thead class="thead-dark" >
     <tr>
       <th scope="col">Fecha Solicitada</th>
@@ -31,9 +48,10 @@
       <td>{{(option.status == 0) ? 'En espera' : (option.status == 1) ? 'Aprobado' : 'Rechazado'}}</td>
       <td *ngIf="this.type == 'student' || this.type == 'teacher'; else aux">{{option.Estado}}</td>
       <ng-template #aux>
-        <button *ngIf= "option.status != 2" (click) = "accept(option.id)" type="button" class="btn btn-success">Aceptar</button>
-        <button *ngIf="option.status != 2" (click)="deny(option.id)"  type=" button"
+        <button *ngIf= "option.status == 0" (click) = "accept(option, 1)" type="button" class="btn btn-success">Aceptar</button>
+        <button *ngIf="option.status == 0" (click)="accept(option, 2)"  type=" button"
           class="btn btn-danger">Rechazar</button>
+        <td *ngIf = "option.status != 0">No hay acción disponible</td>
       </ng-template>
     </tr>
   </tbody>

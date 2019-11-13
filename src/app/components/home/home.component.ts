@@ -43,7 +43,7 @@ export class HomeComponent implements OnInit {
               if(data['id'] == null){
                  Swal.fire({ title: 'Ocurrió un error', html: 'Comprueba tus datos' });
               } else {
-                localStorage.setItem("logged", data["userType"].toString())
+                localStorage.setItem("logged", data["id"].toString())
                 if (data["userType"] == 0 || data["userType"] == 1 ){
                   this.router.navigate(['/lista-peticiones']);
                  } else {

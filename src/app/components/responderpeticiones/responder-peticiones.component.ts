@@ -7,12 +7,24 @@ import { ListauxService } from '../../services/listaux.service'
 })
 export class ResponderPeticionesComponent implements OnInit {
   Peticiones;
-  constructor(private serivceList: ListauxService) { }
+  value;
+  constructor(private serivceList: ListauxService) {
+    this.value = []
+  }
 
-  ngOnInit() {
+ async ngOnInit() {
     this.serivceList.list().subscribe(data => {
       this.Peticiones = data;
+
+      Object.entries(data).forEach(element => {
+        if (element[1].status == 1){
+          this.value.push(new Date(element[1].date))
+        }
+ 
+      });
+
     });
+   
   }
 
 }

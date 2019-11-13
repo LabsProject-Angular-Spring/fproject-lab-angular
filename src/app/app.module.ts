@@ -15,7 +15,7 @@ import { ResponderPeticionesComponent } from './components/responderpeticiones/r
 import { ListaComponent } from './components/lista/lista-peticiones.component';
 import { AuthGuard } from "./guards/auth-guard.service";
 import { HttpClientModule } from '@angular/common/http';
-
+import { CalendarModule } from '@syncfusion/ej2-angular-calendars';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +35,7 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    CalendarModule
   ],
   providers: [DynamicFormBuilder, AuthGuard ],
   bootstrap: [AppComponent]
