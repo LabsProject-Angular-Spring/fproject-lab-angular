@@ -8,11 +8,14 @@ import { ListauxService } from '../../services/listaux.service'
 export class ResponderPeticionesComponent implements OnInit {
   Peticiones;
   value;
+  type;
   constructor(private serivceList: ListauxService) {
-    this.value = []
+    this.value = [];
+    this.type = "aux"
   }
 
  async ngOnInit() {
+
     this.serivceList.list().subscribe(data => {
       this.Peticiones = data;
 

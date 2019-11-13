@@ -4,15 +4,15 @@
   <h1 style="text-align: center; margin-top:1em; ">Calendario académico</h1>
   <div class="lista">
     <div style = "display: flex; margin: 1em; align-content: center; justify-content: center;">
-        <img *ngIf = "this.type != 'student' && this.type != 'teacher'" src = "../../../assets/calendar-clock-icon_34472.png" style="margin: 1em" width="20%" height="20%" />   
-      <div>
+        <img *ngIf = "this.type != 'student' && this.type != 'teacher'" src = "../../../assets/calendar-clock-icon_34472.png" style="margin: 2em" width="20%" height="20%" />   
+      <div *ngIf="this.type == 'student' || this.type == 'teacher'">
         <h3 style="text-align: center;">Calendario personal</h3>
         <ejs-calendar style = "margin: 10px" [isMultiSelection]='multiselect' id=value [value]='value' [min]='minDate' [max]='maxDate'>
           </ejs-calendar>
       </div>
-      <div>
+      <div >
         <h3 style="text-align: center;">Calendario del laboratorio</h3>
-        <ejs-calendar style="margin: 10px" *ngIf="this.type == 'student' || this.type == 'teacher'"
+        <ejs-calendar style="margin: 10px" 
         [isMultiSelection]='multiselect' id=value
         [value]='value' [min]='minDate' [max]='maxDate'>
         </ejs-calendar>
