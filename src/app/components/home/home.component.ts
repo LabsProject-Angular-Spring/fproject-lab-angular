@@ -39,11 +39,12 @@ export class HomeComponent implements OnInit {
           Swal.showLoading();
 
           try {
-            this.login.login(this.form.object).subscribe(data => {
+            this.login.login(this.form.object).subscribe( async data => {
               if(data['id'] == null){
                  Swal.fire({ title: 'Ocurrió un error', html: 'Comprueba tus datos' });
               } else {
-                localStorage.setItem("logged", data["id"].toString())
+                await localStorage.removeItem("logged")
+                await localStorage.setItem("logged", data["id"].toString())
                 if (data["userType"] == 0 || data["userType"] == 1 ){
                   this.router.navigate(['/lista-peticiones']);
                  } else {

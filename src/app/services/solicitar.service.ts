@@ -25,5 +25,9 @@ export class SolicitarService {
     return this.http.get("http://localhost:10030/labrequest/faculty", { headers: headers }) // pETICIÓN GET
 
   }
-
+  register = (model) => {
+    let headers = new HttpHeaders();
+    headers = headers.set('Content-Type', 'application/json'); // Hacemos saber que es jSON
+    return this.http.post("http://localhost:10030/labrequest/add", model, { responseType: 'text' }) // pETICIÓN GET
+  }
 }

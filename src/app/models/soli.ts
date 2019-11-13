@@ -3,7 +3,7 @@ import {IsNotEmpty, IsInt, IsDate, IsBoolean} from "class-validator";
 export class Soli {
 
     @IsDate({message: 'Fecha no válida'})
-    date: Date;
+    date: String;
 
     @IsNotEmpty({message: 'Campo requerido'})
     name: string;
@@ -24,20 +24,22 @@ export class Soli {
     students: number;
 
     @IsInt({message: 'Campo requerido'})
-    cantMachines: number;
+    cantmachines: number;
 
     @IsInt({message: 'Campo requerido'})
-    cantConsume: number;
+    cantconsume: number;
 
     @IsNotEmpty({message: 'Campo requerido'})
     observation: string;
 
     @IsBoolean({message: 'Seleccione una opción'})
-    useMachines: boolean;
+    usemachines: boolean;
 
     @IsBoolean({message: 'Seleccione una opción'})
-    useConsume: boolean;
+    useconsume: boolean;
 
     @IsBoolean({message: 'Seleccione una opción'})
     guide: boolean;
+
+    datetime;
 }

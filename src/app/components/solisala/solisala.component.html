@@ -7,7 +7,7 @@
     </div>
     <div class="form-group col-md-6">
       <label for="inputState">Laboratorio</label>
-      <select formControlName="lab" id="inputState" class="form-control">
+      <select formControlName="labid" id="inputState" class="form-control">
         <option selected>Seleccionar</option>
         <option value="{{option.id}}" *ngFor = "let option of buildings">{{option.name}}</option>
 
@@ -21,7 +21,7 @@
       </div>
       <div class="form-group col-md-6">
             <label for="inputState">Docente</label>
-            <select formControlName="teacher" id="inputState" class="form-control">
+            <select formControlName="teacherid" id="inputState" class="form-control">
               <option selected>Seleccionar</option>
               <option value="{{option.id}}" *ngFor="let option of teachers">{{option.name}}</option>
             </select>
@@ -34,7 +34,7 @@
     </div>
     <div class="form-group col-md-6">
         <label for="inputState">Facultad</label>
-        <select id="inputState" class="form-control">
+        <select formControlName="facultyid" id="inputState" class="form-control">
           <option selected>Seleccionar</option>
           <option value = {{option.id}} *ngFor = "let option of faculties">{{option.name}}</option>
 
@@ -45,19 +45,19 @@
   <div class="form-row">
       <div class="form-group col-md-6">
           <div class="custom-control custom-switch">
-              <input formControlName="useMachines" type="checkbox" class="custom-control-input" id="customSwitch4">
+              <input formControlName="usemachines" type="checkbox" class="custom-control-input" id="customSwitch4">
               <label class="custom-control-label" for="customSwitch4">utiliza máquinas, equipo y/o herramientas </label>
               <label> <br></label>
           </div>
-          <input formControlName="cantMachines" type="text" class="form-control" id="inputAddress" placeholder="Cantidad - descripción">
+          <input formControlName="cantmachines" type="text" class="form-control" id="inputAddress" placeholder="Cantidad - descripción">
       </div>
       <div class="form-group col-md-6">
           <div class="custom-control custom-switch">
-              <input formControlName="useConsume" type="checkbox" class="custom-control-input" id="customSwitch5">
+              <input formControlName="useconsume" type="checkbox" class="custom-control-input" id="customSwitch5">
               <label class="custom-control-label" for="customSwitch5">Utiliza material de consumo</label>
               <label> <br></label>
           </div>
-          <input formControlName="cantConsume" type="text" class="form-control" id="inputAddress" placeholder="Cantidad - descripción">
+          <input formControlName="cantconsume" type="text" class="form-control" id="inputAddress" placeholder="Cantidad - descripción">
       </div>
   </div>
 
@@ -67,17 +67,8 @@
           <label class="custom-control-label" for="customSwitch1">La solicitud tiene guía de laboratorio  </label>
           <label> <br></label>  
         </div>
-    
-        <div class="custom-control custom-switch">
-            <input formControlName="useLab" type="checkbox" class="custom-control-input" id="customSwitch2">
-            <label class="custom-control-label" for="customSwitch2">Requiere uso del laboratorio</label>
-            <label> <br></label>
-          </div>
 
-          <div class="custom-control custom-switch">
-              <input formControlName="aux" type="checkbox" class="custom-control-input" id="customSwitch3">
-              <label class="custom-control-label" for="customSwitch3">Requiere la asistencia de un auxiliar de laboratorio </label>
-            </div>
+
   </div>
 
   <div class="form-row">
@@ -93,13 +84,11 @@
   <div class="form-row">
     <div class="form-group col-md-6">
         <label for="inputAddress">Hora de entrada</label>
-        <input type="datetime" class="form-control" id="inputAddress" placeholder="Hora de entrada">
+        <input formControlName="datetime" type="datetime" class="form-control" id="inputAddress"
+          placeholder="Hora de entrada">
     </div>
-    <div class="form-group col-md-6">
-        <label for="inputAddress">Hora de salida</label>
-        <input type="datetime" class="form-control" id="inputAddress" placeholder="Hora de salida">
-    </div>
+
 </div>
   
-  <button type="submit" class="btn btn-primary boton boton">Solicitar</button>
+  <button (click) = "send()" type="submit" class="btn btn-primary boton boton">Solicitar</button>
 </form>

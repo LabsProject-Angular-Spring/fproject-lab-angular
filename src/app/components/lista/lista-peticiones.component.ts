@@ -22,10 +22,14 @@ export class ListaComponent implements OnInit {
 
   }
 
-  accept(model, option) {
+  async accept(model, option) {
     model.status = option;
+    let date = new Date(model.date);
+    let time = new Date(model.datetime);
+    model.date = date.getFullYear() + "-" + date.getMonth() + "-" + date.getDay();
+    model.datetime = time.getHours() + ":" + time.getMinutes();
     this.serivceList.accept(model.id, model).subscribe(data => {
-      
+      console.log(data)
     })
   }
 

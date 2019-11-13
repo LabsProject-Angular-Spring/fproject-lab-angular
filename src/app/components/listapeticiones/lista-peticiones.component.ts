@@ -12,8 +12,8 @@ export class ListaPeticionesComponent implements OnInit {
     this.type = "student";  
   }
 
-  ngOnInit() {
-    this.service.listUser(localStorage.getItem("logged")).subscribe(data => {
+  async ngOnInit() {
+    this.service.listUser(await localStorage.getItem("logged")).subscribe(data => {
       this.Peticiones = data;
     })
   }

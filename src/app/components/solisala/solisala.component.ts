@@ -4,6 +4,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {Soli} from '../../models/soli';
 import {DynamicFormBuilder, DynamicFormGroup} from 'ngx-dynamic-form-builder';
 import {SolicitarService} from '../../services/solicitar.service'
+import 'rxjs/add/operator/toPromise';
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-solisala',
   templateUrl: './solisala.component.html',
@@ -13,14 +16,18 @@ export class SolisalaComponent implements OnInit {
   public form: DynamicFormGroup<Soli>;
   buildings;
   teachers;
-  faculties;
+  faculties; 
+  data;
   constructor(private fb: DynamicFormBuilder, private solicitarService: SolicitarService) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+
     this.form = this.fb.group(Soli, {
-      date: new Date(), name: '', lab: '', asign: '', teacher: '', faculty: '', 
-      students: '', cantMachines: '', cantConsume: '', observation: '', useMachines: false,
-      useLab: false, guide: false, aux: false, useConsume: false
+      date: '', datetime: '', name: '', labid: '', 
+      asign: '', teacherid: '', iduser: parseInt(await localStorage.getItem("logged")), facultyid: '', 
+      students: '', cantmachines: '', cantconsume: '',
+      observation: '', usemachines: false,
+      useconsume: false, guide: false, status: 0 
     });
 
     this.solicitarService.listBuilding().subscribe(res => {
@@ -36,6 +43,21 @@ export class SolisalaComponent implements OnInit {
     })
   }
 
+  async send(){
+    
+    await this.solicitarService.register(this.form.object).subscribe(data => {
+      this.data = data;
+      Swal.fire({
+        title: 'Cargando...',
+        html: data,
+        timer: 2200,
+        onBeforeOpen: async () => {
+        }
+      });
+    }
+    )
+
+  }
 
 
 }
