@@ -9,9 +9,8 @@
       <label for="inputState">Laboratorio</label>
       <select formControlName="lab" id="inputState" class="form-control">
         <option selected>Seleccionar</option>
-        <option>Software libre</option>
-        <option>Laboratorio Linux</option>
-        <option>Hardware y redes</option>
+        <option value="{{option.id}}" *ngFor = "let option of buildings">{{option.name}}</option>
+
       </select>
     </div>
   </div>
@@ -24,10 +23,7 @@
             <label for="inputState">Docente</label>
             <select formControlName="teacher" id="inputState" class="form-control">
               <option selected>Seleccionar</option>
-              <option>Pablo Carreño</option>
-              <option>Mauricio Alonso</option>
-              <option>Juan Velasquez</option>
-              <option>Fredys Simanca</option>
+              <option value="{{option.id}}" *ngFor="let option of teachers">{{option.name}}</option>
             </select>
         </div>
   </div>
@@ -40,10 +36,8 @@
         <label for="inputState">Facultad</label>
         <select id="inputState" class="form-control">
           <option selected>Seleccionar</option>
-          <option>Ingeniería</option>
-          <option>Derecho</option>
-          <option>Ciencias de la educación</option>
-          <option>Ciencias económicas</option>
+          <option value = {{option.id}} *ngFor = "let option of faculties">{{option.name}}</option>
+
         </select>
     </div>
   </div>

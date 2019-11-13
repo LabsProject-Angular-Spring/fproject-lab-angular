@@ -12,7 +12,7 @@ const routes: Routes = [
   {path: 'solisala', component: SolisalaComponent, canActivate: [AuthGuard]},
   { path: 'lista-peticiones', component: ListaPeticionesComponent, canActivate: [AuthGuard]},
   { path: 'responder-peticiones', component: ResponderPeticionesComponent, canActivate: [AuthGuard]},
-  { path: '', redirectTo: 'home', pathMatch: 'full'}
+  { path: '', redirectTo: 'solisala', pathMatch: 'full'}
 ];
 
 @NgModule({
