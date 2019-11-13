@@ -5,19 +5,21 @@
  <table class="table">
   <thead class="thead-dark" >
     <tr>
-      <th scope="col">Laboratorio</th>
-      <th scope="col">Fecha solicitada</th>
-      <th scope="col">Asignatura</th>
+      <th scope="col">Fecha Solicitada</th>
+      <th scope="col">Estudiantes</th>
+      <th scope="col">Máquinas solicitadas</th>
       <th scope="col">Docente</th>
       <th scope="col">Estado</th>
+      <th scope="col">Laboratorio</th>
     </tr>
   </thead>
   <tbody>
     <tr  *ngFor="let option of Peticiones">
-      <td>{{option.Laboratorio}}</td>
-      <td>{{option.FechaPedida}}</td>
-      <td>{{option.Asignatura}}</td>
-      <td>{{option.Docente}}</td>
+      <td>{{option.date | date: 'dd/MM/yyyy'}}</td>
+      <td>{{option.students}}</td>
+      <td>{{option.cantmachines}}</td>
+      <td>{{option.teacherid}}</td>
+      <td>{{option.labid}}</td>
       <td *ngIf="this.type == 'student' || this.type == 'teacher'; else aux">{{option.Estado}}</td>
       <ng-template #aux>
         <button type="button" class="btn btn-success">Aceptar</button>
