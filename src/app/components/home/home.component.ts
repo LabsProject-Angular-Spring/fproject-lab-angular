@@ -16,14 +16,14 @@ import { LoginService } from '../../services/login.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  public form: DynamicFormGroup<Login>;
+  public form: DynamicFormGroup<Login>; // Form con el modelo login
 
   constructor(private fb: DynamicFormBuilder,
     private login: LoginService,
     private router: Router) { }
 
-  ngOnInit() {
-    this.form = this.fb.group(Login, {
+  ngOnInit() { // Al iniciar angular asigmaos el grupo con los valores
+    this.form = this.fb.group(Login, { 
       username: '', password: ''
     });
   }
@@ -40,9 +40,17 @@ export class HomeComponent implements OnInit {
 
           try {
             this.login.login(this.form.object).subscribe(data => {
-              console.log(data)
+              if(data['id'] == null){
+                 Swal.fire({ title: 'Ocurrió un error', html: 'Comprueba tus datos' });
+              } else {
+                localStorage.setItem("logged", data["userType"].toString())
+                if (data["userType"] == 0 || data["userType"] == 1 ){
+                  this.router.navigate(['/lista-peticiones']);
+                 } else {
+                  this.router.navigate(['/responder-peticiones']);
+                 }
+              }
             });
-            await this.router.navigate(['/lista-peticiones']);
           } catch (e) {
             console.log(e.message || JSON.stringify(e));
             Swal.hideLoading();
