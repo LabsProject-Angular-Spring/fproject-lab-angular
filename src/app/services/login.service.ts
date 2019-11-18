@@ -10,7 +10,7 @@ export class LoginService {
   login(Login: Login) {
     let headers = new HttpHeaders();
     headers = headers.set('Content-Type', 'application/json');
-    return this.http.post('http://localhost:10030/labrequest/login',
+    return this.http.post('http://localhost:10070/labrequest/login',
      JSON.parse(JSON.stringify(Login)), {  headers: headers});
   }
 }
